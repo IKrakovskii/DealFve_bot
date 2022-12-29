@@ -40,7 +40,7 @@ def text(message):
             bot.send_message(message.chat.id, 'Задания закончились...')
         with open('Data/ForBoth.txt', 'w') as f:
             f.writelines(ForBothList)
-        print(len(ForBothList))
+        # print(len(ForBothList))
     if message.text == 'For her':
         with open('Data/ForHer.txt') as f:
             ForBothList = list(f.readlines())
