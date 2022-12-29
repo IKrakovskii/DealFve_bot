@@ -7,11 +7,6 @@ token = '5915273370:AAGi54xzVZsIjAlLPZh8_GE3PAReQ8YdGYA'
 bot = telebot.TeleBot(token)
 
 
-def out(t):
-    print('\033[1m\033[32m{}'.format(t), end='')
-    print('\033[1m\033[31m{}'.format(''))
-
-
 @bot.message_handler(commands=['start'])
 def start_message(message):
     rq = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -22,7 +17,7 @@ def start_message(message):
 
 @bot.message_handler(content_types=['text'])
 def text(message):
-    out(f'Получено сообщение:\n {message.text}\t от\t{message.from_user.username}\n')
+    # print(f'Получено сообщение:\n {message.text}\t от\t{message.from_user.username}\n')
     if message.text == 'Go to menu':
         rq = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
         button_1 = 'For both'
@@ -39,7 +34,7 @@ def text(message):
         try:
             choice = random.choice(ForBothList)
             bot.send_message(message.chat.id, out_text := f'Today your task is:\n\t{choice}')
-            out(f'Отправлено пользователю {message.from_user.username}\n{out_text}')
+            # print(f'Отправлено пользователю {message.from_user.username}\n{out_text}')
             ForBothList.remove(choice)
         except IndexError:
             bot.send_message(message.chat.id, 'Задания закончились...')
@@ -52,7 +47,7 @@ def text(message):
         try:
             choice = random.choice(ForBothList)
             bot.send_message(message.chat.id, out_text := f'Today your task is:\n\t{choice}')
-            out(out_text)
+            # print(out_text)
             ForBothList.remove(choice)
         except IndexError:
             bot.send_message(message.chat.id, 'Задания закончились...')
@@ -64,7 +59,7 @@ def text(message):
         try:
             choice = random.choice(ForBothList)
             bot.send_message(message.chat.id, out_text := f'Today your task is:\n\t{choice}')
-            out(out_text)
+            # print(out_text)
             ForBothList.remove(choice)
         except IndexError:
             bot.send_message(message.chat.id, 'Задания закончились...')
