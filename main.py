@@ -63,7 +63,7 @@ def text(message):
             ForBothList.remove(choice)
         except IndexError:
             bot.send_message(message.chat.id, 'Задания закончились...')
-        with open('Data/ForHim.txt.txt', 'w') as f:
+        with open('Data/ForHim.txt', 'w') as f:
             f.writelines(ForBothList)
 
     if message.text == '/AdminSayYes':
